@@ -3,13 +3,18 @@ on:
   pull_request:
     branches:
       - main
+      - develop
+    types:
+      - opened
+      - edited
+      - synchronize
 jobs:
   check-branch:
     runs-on: ubuntu-latest
     steps:
       - name: Check Source Branch
         run: |
-          if [[ "${{ github.head_ref }}" != "develop" ]]; then
+          if [[ "${{ github.head_ref }}" != "develop" && "${{ github.event.pull_request.base.ref }}" == "main" ]]; then
             echo "Solicitações de pull request para a branch 'main' devem vir somente da branch 'develop'."
             exit 1
           fi
