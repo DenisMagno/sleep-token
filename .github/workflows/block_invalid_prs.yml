@@ -9,6 +9,4 @@ jobs:
     steps:
       - name: Check Source Branch
         run: |
-          if [[ "${{ github.head_ref }}" != "develop" ]]; then
-            echo "Solicitações de pull request para a branch 'main' devem vir somente da branch 'develop'."
-            exit 1
+          exit 1
