@@ -4,39 +4,41 @@ plugins {
 }
 
 android {
-    namespace = "br.com.denismagno.android.sleeptoken"
-    compileSdk = 35
+    namespace = Config.NAMESPACE
+    compileSdk = Config.COMPILE_SDK
 
     defaultConfig {
-        applicationId = "br.com.denismagno.android.sleeptoken"
-        minSdk = 24
-        targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = Config.APPLICATION_ID
+        minSdk = Config.MIN_SDK
+        targetSdk = Config.TARGET_SDK
+        versionCode = Config.VERSION_CODE
+        versionName = Config.VERSION_NAME
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = Config.TEST_INSTRUMENTATION_RUNNER
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile(Config.PROGUARD_ANDROID_OPTIMIZE_FILE_NAME),
+                Config.PROGUARD_RULES_PRO_FILE_NAME
             )
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = Config.javaVersion
+        targetCompatibility = Config.javaVersion
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = Config.javaVersion.toString()
     }
+    sourceSets["main"].java.srcDirs(Config.SOURCE_MAIN_DIRECTORY)
+    sourceSets["test"].java.srcDirs(Config.SOURCE_TEST_DIRECTORY)
+    sourceSets["androidTest"].java.srcDirs(Config.SOURCE_ANDROID_TEST_DIRECTORY)
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
