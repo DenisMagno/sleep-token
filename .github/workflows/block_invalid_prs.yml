@@ -1,6 +1,9 @@
 name: Restringir PRs para Main
 on:
   pull_request:
+    branches:
+      - main
+      - develop
     types:
       - opened
       - edited
