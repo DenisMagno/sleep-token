@@ -2,7 +2,7 @@ import org.gradle.api.JavaVersion
 
 object Config {
     const val VERSION_CODE = 1
-    const val VERSION_NAME = "1.0.0"
+    const val VERSION_NAME = "1.0.1"
 
     const val NAMESPACE = "br.com.denismagno.android.sleeptoken"
 
