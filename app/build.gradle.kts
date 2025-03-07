@@ -1,6 +1,16 @@
+import plugin.checkversion.CheckVersion
+import plugin.checkversion.CheckVersionConfig
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+}
+
+apply<CheckVersion>()
+
+configure<CheckVersionConfig> {
+    version = Config.VERSION_NAME
+    ignore = listOf()
 }
 
 android {
