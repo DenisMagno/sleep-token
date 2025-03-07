@@ -1,0 +1,14 @@
+name: Restringir PRs para Main
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  check-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Source Branch
+        run: |
+          if [[ "${{ github.head_ref }}" != "develop" ]]; then
+            echo "Solicitações de pull request para a branch "main" devem vir somente da branch "develop"."
+            exit 1
