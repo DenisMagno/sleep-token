@@ -14,7 +14,7 @@ android {
         versionCode = Config.VERSION_CODE
         versionName = Config.VERSION_NAME
 
-        testInstrumentationRunner = Config. TEST_INSTRUMENTATION_RUNNER
+        testInstrumentationRunner = Config.TEST_INSTRUMENTATION_RUNNER
     }
 
     buildTypes {
