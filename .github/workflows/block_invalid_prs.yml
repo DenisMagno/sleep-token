@@ -9,3 +9,4 @@ jobs:
     steps:
       - name: Check Source Branch
         run: |
+          exit 1
